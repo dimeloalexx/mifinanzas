@@ -8,8 +8,9 @@ import '../models/debt.dart';
 import '../models/goal.dart';
 import '../models/transaction_item.dart';
 import '../models/transfer.dart';
+import 'db_interface.dart';
 
-class DatabaseHelper {
+class DatabaseHelper implements IDatabaseHelper {
   static final DatabaseHelper instance = DatabaseHelper._internal();
   DatabaseHelper._internal();
 

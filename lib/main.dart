@@ -1,9 +1,6 @@
-import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:provider/provider.dart';
-import 'package:sqflite_common_ffi_web/sqflite_ffi_web.dart';
-import 'package:sqflite/sqflite.dart' show databaseFactory;
 
 import 'providers/finance_provider.dart';
 import 'providers/settings_provider.dart';
@@ -13,9 +10,6 @@ import 'theme/app_theme.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  if (kIsWeb) {
-    databaseFactory = databaseFactoryFfiWeb;
-  }
   await initializeDateFormatting('es_MX');
   runApp(const FinanzasApp());
 }

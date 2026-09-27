@@ -1,7 +1,10 @@
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:uuid/uuid.dart';
 
 import '../db/database_helper.dart';
+import '../db/db_interface.dart';
+import '../db/web_database_helper.dart';
 import '../models/account.dart';
 import '../models/budget.dart';
 import '../models/category.dart';
@@ -11,7 +14,8 @@ import '../models/transaction_item.dart';
 import '../models/transfer.dart';
 
 class FinanceProvider extends ChangeNotifier {
-  final DatabaseHelper _db = DatabaseHelper.instance;
+  final IDatabaseHelper _db =
+      kIsWeb ? WebDatabaseHelper.instance : DatabaseHelper.instance;
   final _uuid = const Uuid();
 
   List<Account> accounts = [];
